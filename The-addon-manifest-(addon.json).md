@@ -123,7 +123,7 @@ Keep in mind, few addons will be enabled by default. If you want your addon to b
 ## `info` (array)
 An array of additional information (e.g. warnings, notices) about the addon. Each item of the array is an object consisting of `type` (string) -either `warning` or `notice` - `text` (string) - the text to be displayed - and `id` (string) - the id of the information.
 Example:
-```
+```json
 "info": [
   {
     "type": "notice",
@@ -142,7 +142,22 @@ Example:
 If set to `true`, userscripts for the addon will be able to use `addon.tab.traps`. Default value is `false`.
 
 ## `presets` (array)
-TBA
+An array of presets for the addon. Each item in the `presets` array should be an object consisting of `name` (string), `id`(string), `description` (string) and `values` (object). The keys in the `values` object should the the addon settings ids, and the values should be the values to set the setting with the id of the key to.
+Example:
+```json
+"presets": [
+  {
+    "name": "preset 1",
+    "id": "preset1",
+    "desctiption": "the first preset",
+    "values": {
+      "boolean_setting": true,
+      "string_setting": "This is a string setting",
+      "integer_setting": 180
+    }
+  }
+]
+```
 
 ## `l10n` (boolean)
 Indicates whether localisation files for the addon should be loaded. Defaults to `false`.
